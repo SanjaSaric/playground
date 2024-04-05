@@ -7,8 +7,7 @@
     "definitions": {
         "basicObject": {
            
-            "required": ["about"],
-            "properties": {
+           
                 "comment": {
                     "description": "Optional comment about the described entity.",
                     "type": "string"
@@ -64,4 +63,3 @@
             }
         }
     }
-}
