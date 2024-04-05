@@ -12,6 +12,7 @@
         "about": {
             "description": "The subject matter of the content. In Student Records, it's the person whom the described document belongs to.",
             "type": "object",
+            "additionalProperties": false,
             "required": [
                 "@type",
                 "additionalType",
