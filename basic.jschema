@@ -4,57 +4,64 @@
     "title": "Basic schema",
     "description": "Minimal JSON Schema for user defined metadata of documents of the Student Records",
     "type": "object",
-    "required": ["about"],
-    "properties": {
-        "comment":{
-            "description": "Optional comment about the described entity.",
-            "type": "string"
-        },
-        "about": {
-            "description": "The subject matter of the content. In Student Records, it's the person whom the described document belongs to.",
-            "type": "object",
-            "required": [
-                "@type",
-                "additionalType",
-                "familyName",
-                "givenName",
-                "persId",
-                "birthDate"
-            ],
+    "definitions": {
+        "basicObject": {
+            "additionalProperties": false,
+            "required": ["about"],
             "properties": {
-                "@type": {
-                    "description": "Type of this entity",
-                    "type": "string",
-                    "enum": ["Person"]
-                },
-                "additionalType": {
-                    "description": "Subtype of this entity",
-                    "type": "string",
-                    "enum": ["Student", "Applicant"]
-                },
-                "familyName": {
-                    "description": "Person's last name. Required field for all objects.",
+                "comment": {
+                    "description": "Optional comment about the described entity.",
                     "type": "string"
                 },
-                "givenName": {
-                    "description": "Person's firt name. Required field for all objects.",
-                    "type": "string"
-                },
-                "persId": {
-                    "description": "Unique person's identifier in TUGrazOnline (stPersonNr). Equals our Student Record ID. Required field for all objects.",
-                    "type": "number"
-                },
-                "studId": {
-                    "description": "Matriculation number. Optional field, because only students have this ID.",
-                    "type": "number"
-                },
-                "birthDate": {
-                    "description": "Person's birth date. Required field for all objects.",
-                    "type": "string",
-                    "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+                "about": {
+                    "description": "The subject matter of the content. In Student Records, it's the person whom the described document belongs to.",
+                    "type": "object",
+                    "required": [
+                        "@type",
+                        "additionalType",
+                        "familyName",
+                        "givenName",
+                        "persId",
+                        "birthDate"
+                    ],
+                    "properties": {
+                        "@type": {
+                            "description": "Type of this entity",
+                            "type": "string",
+                            "enum": ["Person"]
+                        },
+                        "additionalType": {
+                            "description": "Subtype of this entity",
+                            "type": "string",
+                            "enum": [
+                                "Student",
+                                "Applicant"
+                            ]
+                        },
+                        "familyName": {
+                            "description": "Person's last name. Required field for all objects.",
+                            "type": "string"
+                        },
+                        "givenName": {
+                            "description": "Person's firt name. Required field for all objects.",
+                            "type": "string"
+                        },
+                        "persId": {
+                            "description": "Unique person's identifier in TUGrazOnline (stPersonNr). Equals our Student Record ID. Required field for all objects.",
+                            "type": "number"
+                        },
+                        "studId": {
+                            "description": "Matriculation number. Optional field, because only students have this ID.",
+                            "type": "number"
+                        },
+                        "birthDate": {
+                            "description": "Person's birth date. Required field for all objects.",
+                            "type": "string",
+                            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+                        }
+                    }
                 }
-            },
-            "additionalProperties": false
+            }
         }
     }
 }
