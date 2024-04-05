@@ -4,19 +4,21 @@
     "title": "Conversation",
     "description": "JSON Schema for user defined metadata of conversations in the Student Records (phone calls or in-person conversations). The property names follow the vocabulary of schema.org.",
     "type": "object",
-    "allOf": [
-        {"$ref": "./basic.jschema#/properties/comment"},
-        {"$ref": "./basic.jschema#/properties/about"}
-    ],
     "required": [
         "@type",
         "additionalType",
         "abstract",
         "dateCreated",
-        "agent"
-
+        "agent",
+        "about"
     ],
     "properties": {
+        "about": {
+            "allOf": [
+                {"$ref": "https://raw.githubusercontent.com/SanjaSaric/playground/main/basic.jschema#/definitions/about"}
+            ]
+        },
+        "comment": {"$ref": "https://raw.githubusercontent.com/SanjaSaric/playground/main/basic.jschema#/definitions/comment"},
         "@type": {
             "description": "Type of this entity",
             "type": "string",
@@ -44,7 +46,7 @@
             "type": "object",
             "required": [
                 "familyName",
-                "givenName"    
+                "givenName"
             ],
             "properties": {
                 "familyName": {

@@ -2,14 +2,20 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "title": "Citizenship Certificate",
     "description": "JSON Schema for user defined metadata of student's personal ID (personal licence, passport or driving licence) in the scope of Student Records. The property names follow the vocabulary of schema.org.",
-    "type": "object",
-    "allOf":[{ "$ref": "./basic.jschema" }],
+    "type": "object",  
     "required": [
+        "about",
         "@type",
         "additionalType",
         "countryOfOrigin"
     ],
     "properties": { 
+        "about": {
+            "allOf": [
+                {"$ref": "https://raw.githubusercontent.com/SanjaSaric/playground/main/basic.jschema#/definitions/about"}
+            ]
+        },
+        "comment": {"$ref": "https://raw.githubusercontent.com/SanjaSaric/playground/main/basic.jschema#/definitions/comment"},
         "@type":{
             "description": "Type of this entity",
             "type": "string",

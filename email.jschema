@@ -3,11 +3,9 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "title": "E-mail correspondence action",
     "description": "JSON Schema for user defined metadata of about email corresponence actions with students registered in the Student Records. The property names follow the vocabulary of schema.org.",
-    "type": "object",
-    "allOf": [
-        {"$ref": "./basic.jschema"}
-    ],
+    "type": "object",   
     "required": [
+        "about",
         "@type",
         "additionalType",
         "abstract",
@@ -16,6 +14,12 @@
         "recipient"
     ],
     "properties": {
+        "about": {
+            "allOf": [
+                {"$ref": "https://raw.githubusercontent.com/SanjaSaric/playground/main/basic.jschema#/definitions/about"}
+            ]
+        },
+        "comment": {"$ref": "https://raw.githubusercontent.com/SanjaSaric/playground/main/basic.jschema#/definitions/comment"},
         "@type": {
             "description": "Type of this entity",
             "type": "string",

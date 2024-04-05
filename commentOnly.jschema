@@ -3,12 +3,18 @@
     "title": "Comment only documents",
     "description": "JSON Schema for various kinds of documents in the scope of Student Records, for which no content data is required. The property names follow the vocabulary of schema.org.",
     "type": "object",
-    "allOf":[{ "$ref": "./basic.jschema" }],
     "required": [
+        "about",
         "@type",
         "additionalType"
     ],
     "properties": {
+        "about": {
+            "allOf": [
+                {"$ref": "https://raw.githubusercontent.com/SanjaSaric/playground/main/basic.jschema#/definitions/about"}
+            ]
+        },
+        "comment": {"$ref": "https://raw.githubusercontent.com/SanjaSaric/playground/main/basic.jschema#/definitions/comment"},
         "@type":{
             "description": "Type of this entity",
             "type": "string",
