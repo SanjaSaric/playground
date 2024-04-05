@@ -1,0 +1,29 @@
+{   "id": "citizenshipCertificate",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Citizenship Certificate",
+    "description": "JSON Schema for user defined metadata of student's personal ID (personal licence, passport or driving licence) in the scope of Student Records. The property names follow the vocabulary of schema.org.",
+    "type": "object",
+    "allOf":[{ "$ref": "./basic.jschema" }],
+    "required": [
+        "@type",
+        "additionalType",
+        "countryOfOrigin"
+    ],
+    "properties": { 
+        "@type":{
+            "description": "Type of this entity",
+            "type": "string",
+            "enum":["Certification"]
+        },
+        "additionalType": {
+            "description": "Subtype of this entity",
+            "type":"string",
+            "enum":["Citizenship Certificate"]
+        },     
+        "countryOfOrigin": {
+            "description": "Nationality of the person as stated in the document.",
+            "type": "string"
+        }  
+    },
+    "additionalProperties": false
+}

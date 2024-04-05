@@ -1,0 +1,35 @@
+{   "id": "personalLicence",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Personal Licences",
+    "description": "JSON Schema for user defined metadata of student's personal ID (personal licence, passport or driving licence) in the scope of Student Records. The property names follow the vocabulary of schema.org.",
+    "type": "object",
+    "allOf":[{ "$ref": "./basic.jschema" }],
+    "required": [
+        "@type",
+        "additionalType",
+        "identifier",
+        "dateCreated"
+    ],
+    "properties": {
+        "@type":{
+            "description": "Type of this entity",
+            "type": "string",
+            "enum": ["Certification"]
+        },
+        "additionalType": {
+            "description": "Subtype of this entity",
+            "type":"string",
+            "enum": ["Personal ID","Passport", "Driver's licence"]
+        },
+        "identifier": {
+            "description": "ID number",
+            "type": "string"
+        },
+        "dateCreated": {
+            "description": "Date of issue of the ID",
+            "type": "string",
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        }    
+    },
+    "additionalProperties": false
+}

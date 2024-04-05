@@ -1,0 +1,67 @@
+{
+    "id": "conversation",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Conversation",
+    "description": "JSON Schema for user defined metadata of conversations in the Student Records (phone calls or in-person conversations). The property names follow the vocabulary of schema.org.",
+    "type": "object",
+    "allOf": [
+        {"$ref": "./basic.jschema#/properties/comment"},
+        {"$ref": "./basic.jschema#/properties/about"}
+    ],
+    "required": [
+        "@type",
+        "additionalType",
+        "abstract",
+        "dateCreated",
+        "agent"
+
+    ],
+    "properties": {
+        "@type": {
+            "description": "Type of this entity",
+            "type": "string",
+            "enum": ["Conversation"]
+        },
+        "additionalType": {
+            "description": "Subtype of this entity",
+            "type": "string",
+            "enum": [
+                "Phone call",
+                "In-person conversation"
+            ]
+        },
+        "abstract": {
+            "description": "Short description or summarization of the phone call or in-person conversation.",
+            "type": "string"
+        },
+        "dateCreated": {
+            "description": "Date and time of the correspondence action in the format YYYY-MM-DD HH:MM:SS.",
+            "type": "string",
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}\\s[0,1][0-9]:[0-5][0-9]:[0-5][0-9]$"
+        },
+        "agent": {
+            "description": "Student office employee as participant of the conversation.",
+            "type": "object",
+            "required": [
+                "familyName",
+                "givenName"    
+            ],
+            "properties": {
+                "familyName": {
+                    "description": "Person's last name",
+                    "type": "string"
+                },
+                "givenName": {
+                    "description": "Person's first name",
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "subjectOf": {
+            "description": "Registry number. Optional field.",
+            "type": "string"
+        }
+    },
+    "additionalProperties": false
+}

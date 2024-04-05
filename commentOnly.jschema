@@ -1,0 +1,23 @@
+{   "id": "commentOnly",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Comment only documents",
+    "description": "JSON Schema for various kinds of documents in the scope of Student Records, for which no content data is required. The property names follow the vocabulary of schema.org.",
+    "type": "object",
+    "allOf":[{ "$ref": "./basic.jschema" }],
+    "required": [
+        "@type",
+        "additionalType"
+    ],
+    "properties": {
+        "@type":{
+            "description": "Type of this entity",
+            "type": "string",
+            "enum": ["Document"]
+        },
+        "additionalType": {
+            "description": "Subtype of this entity",
+            "type":"string"
+        } 
+    },
+    "additionalProperties": false
+}
